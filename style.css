@@ -380,6 +380,7 @@ section div.cards {
     padding: 15px;
     box-sizing: border-box;
     gap: 15px;
+    display: contents;
 }
 
 section div.cards div.card {
@@ -467,6 +468,11 @@ section div.cards div.card.third {
         --text-font-size: 0.8em;
         --input-font-size: 0.7em;
     }
+
+    header {
+        position: absolute;
+    }
+
     section {
         justify-content: center;
     }
@@ -493,7 +499,12 @@ section div.cards div.card.third {
     }
 
     header img.brand_banner {
-        height: 50%;
+        height: auto;
+        width: 45%;
+    }
+
+    section {
+        overflow: hidden;
     }
 
     section.main div.welcome {
@@ -547,6 +558,10 @@ section div.cards div.card.third {
         --input-font-size: 0.6em;
     }
 
+    footer {
+        height: 200px;
+    }
+
     form {
         padding: 15px;
         border-width: 2px;
@@ -568,9 +583,15 @@ section div.cards div.card.third {
     }
 }
 
-@media (max-width: 365px) {
+@media (max-width: 375px) {
+    footer {
+        height: 150px;
+    }
+
     form {
         max-width: 85%;
+        max-height: 95%;
+        overflow: auto;
     }
     form div.inline {
         display: inline-flex;
@@ -594,6 +615,96 @@ section div.cards div.card.third {
     }
 }
 
+@media (max-height: 660px) and (min-width: 800px) {
+    /* header {
+        position: absolute;
+    } */
+
+    section.row {
+        flex-direction: row;
+    }
+    section div.content {
+        flex: 1;
+    }
+    section div.content.shrink {
+        flex: 0.65;
+    }
+    section div.content.shrink.semi {
+        flex: 0.88;
+    }
+}
+
+@media (max-height: 600px) {
+    header {
+        height: 15%;
+    }
+    section.main div.welcome {
+        inline-size: 100%;
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+    h1 {
+        white-space: break-spaces;
+        flex-basis: 100%;        
+    }
+    section.main button.discover {
+        margin-block-start: 20px;
+    }
+}
+
+@media (max-height: 430px) { 
+    form {
+        zoom: 0.75;
+        max-height: 95%;
+        overflow: auto;
+    }
+
+    footer {
+        height: 180px;
+    }
+}
+
+@media (max-height: 370px) { 
+    /* section div.cards div.card {
+        width: 180px;
+        height: 180px;
+        border-radius: 25px;
+    }
+    section div.cards div.card.horizontal {
+        width: 300px;
+        height: 228px;
+    } */
+    
+    section div.cards div.card {
+        width: auto;
+        height: 50%;
+        aspect-ratio: 1/1;
+        border-radius: 15px;
+    }
+    section div.cards div.card.horizontal {
+        width: auto;
+        height: 50%;
+        aspect-ratio: 4/3;
+    }
+}
+
+
+@media (max-height: 370px) and (max-width: 800px) {
+    section.row {
+        flex-direction: row;
+    }
+    section div.content {
+        flex: 1;
+    }
+    section div.content.shrink {
+        flex: 0.65;
+    }
+    section div.content.shrink.semi {
+        flex: 0.88;
+    }
+}
+
 /*-------------------------------/
 /                                /
 /     END OF RESPONSIVE PART     /
@@ -608,6 +719,6 @@ header button.goBack {
 @media (max-width: 835px) {
     header button.goBack {
         left: 5px;
-        top: 100px;
+        top: 100%;
     }
 }
