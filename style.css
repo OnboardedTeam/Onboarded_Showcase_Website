@@ -716,9 +716,28 @@ header button.goBack {
     left: 25px;
 }
 
+div.team {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+div.team img.teamboard {
+    width: 80%;
+    height: 85%;
+    object-fit: contain;
+}
+
 @media (max-width: 835px) {
     header button.goBack {
         left: 5px;
         top: 100%;
+    }
+    
+    div.team img.teamboard {
+        width: 100%;
     }
 }
