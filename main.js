@@ -59,16 +59,33 @@ window.addEventListener('click', function (event) {
 
 
 
+const cursorEffects_cursor3D_perspective = "650px";
+const cursorEffects_cursor3D_reset_timing = "0.25s";
 
 var lastCard;
 var currentCardTransition = false;
 var currentCardReady = false;
 
-function resetCard() {
-    const cardsList = document.querySelectorAll(":is([effect=cursor3D])");
-    cardsList.forEach((card) => {
+function resetCard(card) {
+    const cursorEffects_cursor3D_reset_timing = "0.25s";
+
+    let reset = false;
+    if (card.hasAttribute("effect-reset")) {
+        reset = card.getAttribute("effect-reset") != 'false';
+    }
+    if (reset == true) {
+        card.style.transition = `${cursorEffects_cursor3D_reset_timing}`;
+        card.style.transform = `perspective(${cursorEffects_cursor3D_perspective}) rotateX(0deg) rotateY(0deg)`;
+    } else {
         card.style.transform = '';
         card.style.transition = '';
+    }
+};
+
+function resetCards() {
+    const cardsList = document.querySelectorAll(":is([effect=cursor3D])");
+    cardsList.forEach((card) => {
+        resetCard(card);
     });
     currentCardTransition = currentCardReady = false;
     lastCard = undefined;
@@ -80,21 +97,36 @@ window.addEventListener('mousemove', (event) => {
     const card = Array.from(cardsList).find((card) => path.includes(card));
     if (card) {
         if (lastCard && card != lastCard) {
-            lastCard.style.transform = '';
-            lastCard.style.transition = '';
+            resetCard(lastCard);
             currentCardTransition = currentCardReady = false;
         }
+
+        if (!currentCardReady && !currentCardTransition) {
+            let reset = false;
+            if (card.hasAttribute("effect-reset")) {
+                reset = card.getAttribute("effect-reset") != 'false';
+            }
+            if (reset == true) {
+                resetCard(card);
+            }
+        }
+
+        let power = 1;
+        if (card.hasAttribute("effect-power")) {
+            power = card.getAttribute("effect-power") || power;
+        }
+
         const rect = card.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         const deltaX = event.clientX - centerX;
         const deltaY = event.clientY - centerY;
-        const angleX = deltaY / 15;
-        const angleY = -deltaX / 20;
+        const angleX = deltaY / 15 * power;
+        const angleY = -deltaX / 20 * power;
 
         requestAnimationFrame(() => {
             if (!lastCard || card == lastCard) {
-                card.style.transform = `perspective(650px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+                card.style.transform = `perspective(${cursorEffects_cursor3D_perspective}) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
             }
         });
         lastCard = card;
@@ -111,14 +143,14 @@ window.addEventListener('mousemove', (event) => {
             }, {once: true});
         }
     } else {
-        resetCard();
+        resetCards();
     }
 });
 
 window.addEventListener('blur', (event) => {
-    resetCard();
+    resetCards();
 });
 
 window.addEventListener('mouseout', (event) => {
-    resetCard();
+    resetCards();
 });
