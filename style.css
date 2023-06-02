@@ -449,7 +449,8 @@ section div.cards div.card.horizontal {
 section div.cards div.card.video {
     overflow: hidden;
 }
-section div.cards div.card.video :is(video, img)  {
+
+section div.cards div.card.video :is(video, img, iframe)  {
     width: 100%;
     height: 100%;
     object-fit: cover;
