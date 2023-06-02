@@ -11,6 +11,16 @@
          url("https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'Game Of Squids';
+  src: url('./src/fonts/Game_Of_Squids.otf') format('opentype'),
+       url('./src/fonts/Game_Of_Squids.ttf') format('truetype');
+  /* Autres propriétés facultatives */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html, body {
     margin: 0 !important;
     padding: 0 !important;
@@ -20,8 +30,27 @@ html, body {
     background-color: #0d1526;
     background: #0d1526;
     background: linear-gradient(25deg, rgba(28, 53, 153, 1) 0%, rgba(13, 21, 38, 1) 35%, rgba(13, 21, 38, 1) 50%, rgba(13, 21, 38, 1) 65%, rgba(32, 83, 147, 1) 100%);
+    background-image: url(./src/images/backgroundsify.jpg);
+    background-size: cover;
+    background-attachment: fixed;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+}
+
+body div.background_full {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    margin: auto;
+    z-index: 0;
+}
+
+body div.background_full :is(video, img)  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
 }
 /* 
 body {
@@ -121,6 +150,11 @@ footer {
     height: 250px;
     background-color: rgba(40, 65, 125);
     scroll-snap-align: end;
+    z-index: 3;
+}
+
+footer * {
+    z-index: 2;
 }
 
 footer div.brand {
@@ -155,6 +189,11 @@ section {
     scroll-snap-align: start;
     box-sizing: border-box;
     padding: 35px;
+    z-index: 2;
+}
+
+section * {
+    z-index: 2;
 }
 section.main {
     background-color: transparent;
@@ -169,12 +208,14 @@ h1 {
     font-size: var(--title-font-size);
     color: white;
     white-space: nowrap;
+    width: min-content;
 }
 h3 {
     font-size: var(--little-title-font-size);
     color: white;
-    background: linear-gradient(111deg, rgba(126, 79, 210, 1) 0%, rgba(22, 218, 240, 1) 35%, rgba(255, 232, 199, 1) 60%, rgba(233, 76, 164, 1) 100%);    -webkit-background-clip: text;
+    background: linear-gradient(111deg, rgba(126, 79, 210, 1) 0%, rgba(22, 218, 240, 1) 35%, rgba(255, 232, 199, 1) 50%, rgba(233, 76, 164, 1) 100%);    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: 'Game Of Squids', sans-serif;
 }
 
 p, b, em, u {
@@ -308,7 +349,7 @@ section.main div.welcome {
     flex-direction: column;
     padding: 25px;
     box-sizing: border-box;
-    inline-size: min-content;
+    inline-size: max-content;
 }
 
 section.main div.welcome p {
@@ -326,7 +367,7 @@ section.main button.discover {
 }
 
 section.main * {
-    z-index: 1;
+    z-index: 2;
 }
 
 section.main div.background {
@@ -338,13 +379,19 @@ section.main div.background {
     align-items: center;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
 }
 section.main div.background video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+section.main h1.welcome_title {
+    font-family: 'Game Of Squids', sans-serif;
+ background: linear-gradient(111deg, rgba(126, 79, 210, 1) 0%, rgba(22, 218, 240, 1) 35%, rgba(255, 232, 199, 1) 50%, rgba(233, 76, 164, 1) 100%);    -webkit-background-clip: text;    text-shadow: none;
+    -webkit-text-fill-color: transparent;
 }
 
 /*---------------------------------/
@@ -402,7 +449,7 @@ section div.cards div.card.horizontal {
 section div.cards div.card.video {
     overflow: hidden;
 }
-section div.cards div.card.video video {
+section div.cards div.card.video :is(video, img)  {
     width: 100%;
     height: 100%;
     object-fit: cover;
