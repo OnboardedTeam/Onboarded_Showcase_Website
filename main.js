@@ -154,3 +154,16 @@ window.addEventListener('blur', (event) => {
 window.addEventListener('mouseout', (event) => {
     resetCards();
 });
+
+
+
+window.addEventListener("scroll", (event) => {
+   var background = document.querySelector("div.background_full video");
+   if (background && background != null) {
+        var scrollPercent = (window.scrollY * 100) / Math.max(document.documentElement.scrollHeight - document.documentElement.clientHeight, 1);
+        var minScale = -8; // Valeur minimale de la plage de mise à l'échelle
+        var maxScale = 8; // Valeur maximale de la plage de mise à l'échelle
+        var scaledValue = ((maxScale - minScale) * (scrollPercent / 100)) + minScale;
+        background.style.transform = `scale(120%) translateY(${scaledValue}%)`;
+   }
+});
