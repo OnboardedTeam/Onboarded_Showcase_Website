@@ -139,6 +139,7 @@ header a:hover img.brand_banner {
 header h2 {
     font-size: var(--text-font-size);
     color: white;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 footer {
@@ -166,7 +167,7 @@ footer div.brand {
 }
 
 footer div.brand img.brand_banner {
-    height: 50px;
+    height: 40px;
     transition: 0.2s;
 }
 footer div.brand a:hover img.brand_banner {
@@ -188,7 +189,7 @@ section {
     justify-content: space-evenly;
     scroll-snap-align: start;
     box-sizing: border-box;
-    padding: 35px;
+    padding: 25px;
     z-index: 2;
 }
 
@@ -208,7 +209,7 @@ h1 {
     font-size: var(--title-font-size);
     color: white;
     white-space: nowrap;
-    width: min-content;
+    width: fit-content;
 }
 h3 {
     font-size: var(--little-title-font-size);
@@ -221,6 +222,7 @@ h3 {
 p, b, em, u {
     font-size: var(--text-font-size);
     color: white;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 a.link {
@@ -282,6 +284,7 @@ form {
     border-radius: 50px;
     max-height: 650px;
     gap: 5px;
+    backdrop-filter: blur(15px);
 }
 
 form div.inline {
@@ -350,6 +353,7 @@ section.main div.welcome {
     padding: 25px;
     box-sizing: border-box;
     inline-size: max-content;
+    align-items: center;
 }
 
 section.main div.welcome p {
@@ -370,7 +374,7 @@ section.main * {
     z-index: 2;
 }
 
-section.main div.background {
+section div.background {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -382,7 +386,7 @@ section.main div.background {
     z-index: 1;
     pointer-events: none;
 }
-section.main div.background video {
+section div.background video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -392,6 +396,7 @@ section.main h1.welcome_title {
     font-family: 'Game Of Squids', sans-serif;
  background: linear-gradient(111deg, rgba(126, 79, 210, 1) 0%, rgba(22, 218, 240, 1) 35%, rgba(255, 232, 199, 1) 50%, rgba(233, 76, 164, 1) 100%);    -webkit-background-clip: text;    text-shadow: none;
     -webkit-text-fill-color: transparent;
+    text-align: center;
 }
 
 /*---------------------------------/
@@ -473,6 +478,11 @@ section div.cards div.card.third {
     bottom: 67px;
 }
 
+section div.cards div.card.shrinked {
+    zoom: 0.6;
+    position: relative;
+}
+
 /*-----------------------------------/
 /                                    /
 /     END OF OTHER SECTIONS PART     /
@@ -548,7 +558,7 @@ section div.cards div.card.third {
 
     header img.brand_banner {
         height: auto;
-        width: 45%;
+        width: 40%;
     }
 
     section {
