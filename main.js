@@ -167,3 +167,8 @@ window.addEventListener("scroll", (event) => {
         background.style.transform = `scale(120%) translateY(${scaledValue}%)`;
    }
 });
+
+
+
+/**********************  CARROUSEL **********************************/
+

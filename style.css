@@ -35,6 +35,7 @@ html, body {
     background-attachment: fixed;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    /* overflow-x: hidden; */
 }
 
 body div.background_full {
@@ -90,11 +91,16 @@ body {
 }
 
 :root {
-    --title-font-size: 4em;
-    --title-text-font-size: 1.8em;
-    --little-title-font-size: 3em;
-    --text-font-size: 1.3em;
+    --title-font-size: 6em;
+    --title-text-font-size: 5em;
+    --little-title-font-size: 5em;
+    --text-font-size: 2em;
     --input-font-size: 1.2em;
+}
+
+p {
+    font-family: 'Titillium Web', sans-serif;
+    --text-font-size: 2em;
 }
 
 /*--------------------------/
@@ -139,6 +145,13 @@ header a:hover img.brand_banner {
 header h2 {
     font-size: var(--text-font-size);
     color: white;
+    font-family: 'Game Of Squids';
+}
+
+.video-slide>h3 {
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+   font-size: var(--text-font-size) ;
 }
 
 footer {
@@ -210,12 +223,13 @@ h1 {
     white-space: nowrap;
     width: min-content;
 }
-h3 {
+h2 {
     font-size: var(--little-title-font-size);
     color: white;
     background: linear-gradient(111deg, rgba(126, 79, 210, 1) 0%, rgba(22, 218, 240, 1) 35%, rgba(255, 232, 199, 1) 50%, rgba(233, 76, 164, 1) 100%);    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Game Of Squids', sans-serif;
+    --little-title-font-size: 5em; 
 }
 
 p, b, em, u {
@@ -788,4 +802,41 @@ div.team img.teamboard {
     div.team img.teamboard {
         width: 100%;
     }
+}
+
+
+/*-------------------------------/
+/                                /
+/        CARROUSEL               /
+/                                /
+/-------------------------------*/
+
+
+
+
+/*************************** Background Gamification **************************/
+
+#section-map {
+    position: relative;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.background-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur d'arrière-plan avec une opacité de 0.5 */
+    z-index: -1;
 }
