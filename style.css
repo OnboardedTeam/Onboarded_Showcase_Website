@@ -446,6 +446,7 @@ section div.cards div.card {
     background: radial-gradient(circle, rgba(28, 53, 153, 0.8) 0%, rgba(13,21,38,0.8) 80%, rgba(13, 21, 38, 0.8) 100%);
     backdrop-filter: blur(5px);
     transition: 0.25s;
+    border: ridge 2px #4fcde1;
 }
 section div.cards div.card.horizontal {
     width: 500px;
