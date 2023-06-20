@@ -11,6 +11,12 @@ html, body {
     height: 100%;
 }
 
+[hidden] {
+    display: none !important;
+} [hidding] {
+    animation: fadeOut 1s ease-in-out forwards !important;
+}
+
 .container {
     width: 100%;
     height: 100%;
@@ -76,6 +82,12 @@ h1 {
     animation: fadeIn 2.5s ease forwards;
 }
 
+p {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 0px 15px #842484, 0px 0px 25px #84248485;
+}
 
 p.soon {
     font-family: 'Orbitron', sans-serif;
@@ -186,25 +198,55 @@ footer div.brand a:hover img.brand_banner {
     transform: scale(1.05);
 }
 
-footer div.copyright {
+footer div.legal {
     font-family: 'Orbitron', sans-serif;
     color: white;
     font-size: 15px;
     text-align: center;
 }
 
+div.modalContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    backdrop-filter: blur(25px) grayscale(1) brightness(0.3);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+div.modalContainer div.modal {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+div.modalContainer div.modal iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
 /* FORMULAIRE DE CONTACT */
 
 form {
     display: flex;
     flex-direction: column;
-    background-color: #010209;
+    background-color: #010209bb;
     padding: 45px;
     box-sizing: border-box;
     border: solid 2px rgb(255, 255, 255);
     border-radius: 50px;
     max-height: 650px;
     gap: 5px;
+    backdrop-filter: blur(15px);
 }
 
 form div.inline {
@@ -252,6 +294,7 @@ form input[type=submit] {
     letter-spacing: 0.1em;
 
     color: #FFFFFF;
+    transition: 0.3s;
 }
 form input[type=submit]:is(:hover, :focus) {
     background: #842484;
@@ -264,29 +307,6 @@ form input[type=submit]:is(:hover, :focus) {
 }
 
 /*FIN FORMULAIRE DE CONTACT*/
-
-/* LEGAL MODAL */
-
-.legal {
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    background-color: #010209;
-    padding: 45px;
-    box-sizing: border-box;
-    border: solid 2px rgb(255, 255, 255);
-    border-radius: 50px;
-    gap: 5px;
-}
-
-.legaltext {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 100%;
-    color: #ffffff;
-}
-
-
-    /* FIN LEGAL MODAL*/
 
 a.link {
     color: white;
@@ -336,6 +356,15 @@ a.link.mail {
   100% {
     opacity: 1;
   }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 
@@ -437,7 +466,7 @@ a.link.mail {
         font-size: 20px;
     }
 
-    p.soon {
+    p {
         font-size: 20px;
     }
 
@@ -445,7 +474,7 @@ a.link.mail {
         font-size: 15px;
     }
 
-    footer div.copyright {
+    footer div.legal {
         font-size: 10px;
     }
 }
@@ -476,7 +505,7 @@ a.link.mail {
         font-size: 20px;
     }
 
-    p.soon {
+    p {
         font-size: 20px;
     }
 
@@ -515,7 +544,7 @@ a.link.mail {
         font-size: 24px;
     }
 
-    p.soon {
+    p {
         font-size: 20px;
     }
 
@@ -553,7 +582,7 @@ a.link.mail {
         font-size: 50px;
     }
 
-    p.soon {
+    p {
         font-size: 35px;
     }
 
@@ -561,7 +590,7 @@ a.link.mail {
         font-size: 20px;
     }
 
-    footer div.copyright {
+    footer div.legal {
         font-size: 15px;
     }
 }
@@ -591,7 +620,7 @@ a.link.mail {
         font-size: 35px;
     }
 
-    p.soon {
+    p {
         font-size: 25px;
     }
 
@@ -599,7 +628,7 @@ a.link.mail {
         font-size: 15px;
     }
 
-    footer div.copyright {
+    footer div.legal {
         font-size: 10px;
     }
 }
@@ -629,7 +658,7 @@ a.link.mail {
         font-size: 35px;
     }
 
-    p.soon {
+    p {
         font-size: 25px;
     }
 
@@ -637,7 +666,7 @@ a.link.mail {
         font-size: 15px;
     }
 
-    footer div.copyright {
+    footer div.legal {
         font-size: 10px;
     }
 }
