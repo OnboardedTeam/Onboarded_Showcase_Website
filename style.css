@@ -76,12 +76,6 @@ h1 {
     animation: fadeIn 2.5s ease forwards;
 }
 
-p {
-    font-family: 'Orbitron', sans-serif;
-    font-size:28px;
-    color: #ffffff;
-    text-shadow: 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 0px 15px #842484, 0px 0px 25px #84248485;
-}
 
 p.soon {
     font-family: 'Orbitron', sans-serif;
@@ -192,24 +186,25 @@ footer div.brand a:hover img.brand_banner {
     transform: scale(1.05);
 }
 
-footer div.legal {
+footer div.copyright {
     font-family: 'Orbitron', sans-serif;
     color: white;
     font-size: 15px;
     text-align: center;
 }
 
+/* FORMULAIRE DE CONTACT */
+
 form {
     display: flex;
     flex-direction: column;
-    background-color: rgb(20, 20, 100, 0.3);
+    background-color: #010209;
     padding: 45px;
     box-sizing: border-box;
     border: solid 2px rgb(255, 255, 255);
     border-radius: 50px;
     max-height: 650px;
     gap: 5px;
-    backdrop-filter: blur(15px);
 }
 
 form div.inline {
@@ -246,15 +241,52 @@ form textarea {
 form input[type=submit] {
     margin-block-start: 30px;
     cursor: pointer;
-    background-color: rgb(20, 20, 100, 0.8);
-    border: solid 1px rgb(252, 253, 253);
-    transition: 0.3s;
+    background: rgba(132, 36, 132, 0.3);
+    border: 1px solid #842484;
+    border-radius: 100px;
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 35px;
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
 }
 form input[type=submit]:is(:hover, :focus) {
-    color: gold;
-    filter: brightness(2);
+    background: #842484;
+    border: 1px solid #842484;
+    box-shadow: 0px 0px 25px #842484;
+    border-radius: 100px;
     transform: scale(1.03);
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 25px #FFFFFF;
 }
+
+/*FIN FORMULAIRE DE CONTACT*/
+
+/* LEGAL MODAL */
+
+.legal {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    background-color: #010209;
+    padding: 45px;
+    box-sizing: border-box;
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 50px;
+    gap: 5px;
+}
+
+.legaltext {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 100%;
+    color: #ffffff;
+}
+
+
+    /* FIN LEGAL MODAL*/
 
 a.link {
     color: white;
@@ -405,7 +437,46 @@ a.link.mail {
         font-size: 20px;
     }
 
-    p {
+    p.soon {
+        font-size: 20px;
+    }
+
+    div.brand a.link {
+        font-size: 15px;
+    }
+
+    footer div.copyright {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 320px) {
+
+    .logo-container {
+        margin-bottom: 0px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .logo {
+        width: 250px;
+    }
+
+    .text-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p.soon {
         font-size: 20px;
     }
 
@@ -444,7 +515,7 @@ a.link.mail {
         font-size: 24px;
     }
 
-    p {
+    p.soon {
         font-size: 20px;
     }
 
@@ -454,45 +525,6 @@ a.link.mail {
 
     footer div.legal {
         font-size: 10px;
-    }
-}
-
-@media only screen and (min-width: 481px) and (max-width: 736px) {
-
-    .logo-container {
-        margin-bottom: 0px;
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .logo {
-        width: 350px;
-    }
-
-    .text-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-
-    p {
-        font-size: 25px;
-    }
-
-    div.brand a.link {
-        font-size: 20px;
-    }
-
-    footer div.legal {
-        font-size: 15px;
     }
 }
 
@@ -521,7 +553,7 @@ a.link.mail {
         font-size: 50px;
     }
 
-    p {
+    p.soon {
         font-size: 35px;
     }
 
@@ -529,7 +561,7 @@ a.link.mail {
         font-size: 20px;
     }
 
-    footer div.legal {
+    footer div.copyright {
         font-size: 15px;
     }
 }
@@ -559,7 +591,7 @@ a.link.mail {
         font-size: 35px;
     }
 
-    p {
+    p.soon {
         font-size: 25px;
     }
 
@@ -567,7 +599,7 @@ a.link.mail {
         font-size: 15px;
     }
 
-    footer div.legal {
+    footer div.copyright {
         font-size: 10px;
     }
 }
@@ -597,7 +629,7 @@ a.link.mail {
         font-size: 35px;
     }
 
-    p {
+    p.soon {
         font-size: 25px;
     }
 
@@ -605,11 +637,10 @@ a.link.mail {
         font-size: 15px;
     }
 
-    footer div.legal {
+    footer div.copyright {
         font-size: 10px;
     }
 }
-
 
 
 
