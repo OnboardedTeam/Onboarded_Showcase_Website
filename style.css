@@ -11,6 +11,12 @@ html, body {
     height: 100%;
 }
 
+[hidden] {
+    display: none !important;
+} [hidding] {
+    animation: fadeOut 1s ease-in-out forwards !important;
+}
+
 .container {
     width: 100%;
     height: 100%;
@@ -199,6 +205,30 @@ footer div.legal {
     text-align: center;
 }
 
+div.modalContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    backdrop-filter: blur(25px) grayscale(1) brightness(0.3);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out forwards;
+} div.modalContainer div.modal {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    overflow: hidden;
+} div.modalContainer div.modal iframe {
+    width: 100%;
+    height: 100%;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -305,6 +335,16 @@ a.link.mail {
     opacity: 1;
   }
 }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 
 
 @keyframes neon {
