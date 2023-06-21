@@ -9,21 +9,30 @@
 html, body {
     width: 100%;
     height: 100%;
+    background-image: url("./src/images/HomepageMetavirtual.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+:root {
+    --title-font-size: 4em;
+    --title-text-font-size: 1.8em;
+    --little-title-font-size: 3em;
+    --text-font-size: 1.3em;
+    --input-font-size: 1.2em;
 }
 
 [hidden] {
     display: none !important;
 } [hidding] {
-    animation: fadeOut 1s ease-in-out forwards !important;
+    animation: fadeOut 1s ease-in forwards !important;
 }
 
 .container {
     width: 100%;
     height: 100%;
-    background-image: url("./src/images/HomepageMetavirtual.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     padding: 15px;
@@ -82,6 +91,13 @@ h1 {
     animation: fadeIn 2.5s ease forwards;
 }
 
+p {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 0px 15px #842484, 0px 0px 25px #84248485;
+}
+
 p.soon {
     font-family: 'Orbitron', sans-serif;
     font-size: 50px;
@@ -135,19 +151,17 @@ header button.goBack {
     top: auto;
 }
 
-.legal2 {
+.legalTextContainer {
     width: 50%;
     background-color: #010209;
     border-radius: 20px;
     font-family: 'Orbitron', sans-serif;
-}
-
-.mail {
-    padding: 10px;
+    padding: 5px;
+    margin: 10px;
 }
 
 .legaltext {
-    font-size: 100%;
+    font-size: 1em;
     padding: 10px;
     color: #FFFFFF;
 }
@@ -186,7 +200,7 @@ footer {
     scroll-snap-align: end;
     opacity: 0;
     animation: fadeIn 1s ease forwards;
-    animation-delay: 3.5s;
+    animation-delay: 2.8s;
 }
 
 
@@ -225,10 +239,11 @@ div.modalContainer {
     backdrop-filter: blur(25px) grayscale(1) brightness(0.3);
     justify-content: center;
     align-items: center;
-    animation: fadeIn 1s ease-in-out forwards;
+    animation: fadeIn 1s ease-in forwards;
 }
 
 div.modalContainer div.modal {
+    position: relative;
     display: flex;
     width: 80%;
     height: 80%;
@@ -236,6 +251,23 @@ div.modalContainer div.modal {
     align-items: center;
     border-radius: 25px;
     overflow: hidden;
+}
+
+div.modalContainer div.modal a.newTab {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-family: sans-serif;
+    color: white;
+    background-color: #201e1ed6;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: 0.3s;
+    user-select: none;
+} div.modalContainer div.modal a.newTab:hover {
+    opacity: 1;
 }
 
 div.modalContainer div.modal iframe {
@@ -299,7 +331,6 @@ form input[type=submit] {
     font-family: 'Orbitron';
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
     line-height: 35px;
     letter-spacing: 0.1em;
 
@@ -451,7 +482,6 @@ a.link.mail {
 }
 
 @media only screen and (min-width: 280px) and (max-width: 320px) {
-
     .logo-container {
         margin-bottom: 0px;
         position: absolute;
@@ -461,7 +491,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 250px;
+        width: 230px;
     }
 
     .text-container {
@@ -476,7 +506,7 @@ a.link.mail {
         font-size: 20px;
     }
 
-    p.soon {
+    p {
         font-size: 20px;
     }
 
@@ -487,12 +517,9 @@ a.link.mail {
     footer div.legal {
         font-size: 10px;
     }
-    
 }
 
-
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-
     .logo-container {
         margin-bottom: 0px;
         position: absolute;
@@ -502,7 +529,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 300px;
+        width: 280px;
     }
 
     .text-container {
@@ -517,7 +544,7 @@ a.link.mail {
         font-size: 24px;
     }
 
-    p.soon {
+    p {
         font-size: 20px;
     }
 
@@ -540,7 +567,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 300px;
+        width: 280px;
     }
 
     .text-container {
@@ -555,7 +582,7 @@ a.link.mail {
         font-size: 24px;
     }
 
-    p.soon {
+    p {
         font-size: 20px;
     }
 
@@ -566,7 +593,6 @@ a.link.mail {
     footer div.legal {
         font-size: 10px;
     }
-
 }
 
 @media only screen and (min-width: 737px) and (max-width: 1024px) {
@@ -579,7 +605,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 400px;
+        width: 280px;
     }
 
     .text-container {
@@ -594,7 +620,7 @@ a.link.mail {
         font-size: 50px;
     }
 
-    p.soon {
+    p {
         font-size: 35px;
     }
 
@@ -617,7 +643,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 250px;
+        width: 230px;
     }
 
     .text-container {
@@ -632,7 +658,7 @@ a.link.mail {
         font-size: 35px;
     }
 
-    p.soon {
+    p {
         font-size: 25px;
     }
 
@@ -655,7 +681,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 300px;
+        width: 280px;
     }
 
     .text-container {
@@ -670,7 +696,7 @@ a.link.mail {
         font-size: 35px;
     }
 
-    p.soon {
+    p {
         font-size: 25px;
     }
 
@@ -687,3 +713,160 @@ a.link.mail {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1615px) {
+    :root {
+        --title-font-size: 2.5em;
+        --title-text-font-size: 1.4em;
+        --little-title-font-size: 2em;
+        --text-font-size: 1em;
+        --input-font-size: 0.9em;
+    }
+}
+
+@media (max-width: 1115px) {
+    :root {
+        --title-font-size: 2em;
+        --title-text-font-size: 1.1em;
+        --little-title-font-size: 1.5em;
+        --text-font-size: 0.8em;
+        --input-font-size: 0.7em;
+    }
+
+    div.container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 745px) {
+    :root {
+        --title-font-size: 2em;
+        --title-text-font-size: 0.9em;
+        --little-title-font-size: 1.5em;
+        --text-font-size: 0.7em;
+        --input-font-size: 0.6em;
+    }
+
+    form {
+        padding: 30px;
+        border-width: 3px;
+        border-radius: 35px;
+        max-height: 500px;
+    }
+
+    form :is(input, textarea) {
+        padding: 20px;
+        border-radius: 50px;
+    }
+
+    form textarea {
+        border-radius: 20px;
+    }
+
+    form input[type=submit] {
+        margin-block-start: 25px;
+        border-width: 3px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    :root {
+        --title-font-size: 2em;
+        --title-text-font-size: 0.9em;
+        --little-title-font-size: 1.5em;
+        --text-font-size: 0.7em;
+        --input-font-size: 0.6em;
+    }
+
+    form {
+        padding: 15px;
+        border-width: 2px;
+        border-radius: 30px;
+    }
+
+    form :is(input, textarea) {
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    form textarea {
+        border-radius: 15px;
+    }
+
+    form input[type=submit] {
+        margin-block-start: 20px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 375px) {
+    form {
+        max-width: 90%;
+        max-height: 95%;
+        overflow: auto;
+    }
+
+    form div.inline {
+        display: inline-flex;
+        flex-direction: column;
+        white-space: break-spaces;
+    }
+    
+    .logo {
+        width: auto;
+        height: 10%;
+    }
+}
+
+@media (max-height: 660px) and (min-width: 700px) {
+    div.container {
+        flex-direction: row;
+    }
+}
+
+@media (max-height: 430px) {
+    form {
+        zoom: 0.75;
+        max-height: 95%;
+        overflow: auto;
+    }
+}
