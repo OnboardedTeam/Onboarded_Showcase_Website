@@ -9,15 +9,30 @@
 html, body {
     width: 100%;
     height: 100%;
+    background-image: url("./src/images/HomepageMetavirtual.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+:root {
+    --title-font-size: 4em;
+    --title-text-font-size: 1.8em;
+    --little-title-font-size: 3em;
+    --text-font-size: 1.3em;
+    --input-font-size: 1.2em;
+}
+
+[hidden] {
+    display: none !important;
+} [hidding] {
+    animation: fadeOut 1s ease-in forwards !important;
 }
 
 .container {
     width: 100%;
     height: 100%;
-    background-image: url("./src/images/HomepageMetavirtual.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     padding: 15px;
@@ -27,16 +42,8 @@ html, body {
     flex-direction: column;
 }
 
-.logo-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 100px;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.container.responsive {
+    height: auto;
 }
 
 .logo {
@@ -44,14 +51,6 @@ html, body {
     animation: slideInFromTop 2.5s ease forwards;
     animation-delay: 0.5s;
     opacity: 0;
-}
-
-.text-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
 }
 
 .title-container {
@@ -78,7 +77,7 @@ h1 {
 
 p {
     font-family: 'Orbitron', sans-serif;
-    font-size:28px;
+    font-size: 28px;
     color: #ffffff;
     text-shadow: 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 0px 15px #842484, 0px 0px 25px #84248485;
 }
@@ -89,6 +88,7 @@ p.soon {
     color: #ffffff;
     text-shadow: 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 0px 25px #842484;
     animation: neon 2s ease-in-out infinite alternate;
+    text-align: center;
 }
 
 header {
@@ -125,15 +125,31 @@ header h2 {
 }
 
 button.goBack {
-    position: absolute;
+    position: fixed;
     left: 25px;
     top: 25px;
+    z-index: 999;
 }
 
 header button.goBack {
-    position: absolute;
+    position: fixed;
     left: 25px;
     top: auto;
+}
+
+.legalTextContainer {
+    width: 70%;
+    background-color: #010209;
+    border-radius: 20px;
+    font-family: 'Orbitron', sans-serif;
+    padding: 5px;
+    margin: 10px;
+}
+
+.legaltext {
+    font-size: 1em;
+    padding: 10px;
+    color: #FFFFFF;
 }
 
 @media (max-width: 835px) {
@@ -150,7 +166,7 @@ button {
     font-size: var(--text-font-size);
     border-radius: 35px;
     color: white;
-    background-color: #11abbd;
+    background-color: #842484;
     border: none;
     cursor: pointer;
     --transition-timing: 0.5s;
@@ -158,7 +174,7 @@ button {
 }
 
 footer {
-    position: absolute;
+    margin-block-start: auto;
     bottom: 0;
     display: flex;
     flex-direction: column;
@@ -170,7 +186,7 @@ footer {
     scroll-snap-align: end;
     opacity: 0;
     animation: fadeIn 1s ease forwards;
-    animation-delay: 3.5s;
+    animation-delay: 2.8s;
 }
 
 
@@ -179,7 +195,7 @@ footer div.brand {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 25px;
     margin-bottom: 20px;
 }
 
@@ -199,10 +215,59 @@ footer div.legal {
     text-align: center;
 }
 
+div.modalContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    backdrop-filter: blur(25px) grayscale(1) brightness(0.3);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+div.modalContainer div.modal {
+    position: relative;
+    display: flex;
+    width: 80%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+div.modalContainer div.modal a.newTab {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-family: sans-serif;
+    color: white;
+    background-color: #201e1ed6;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: 0.3s;
+    user-select: none;
+} div.modalContainer div.modal a.newTab:hover {
+    opacity: 1;
+}
+
+div.modalContainer div.modal iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* FORMULAIRE DE CONTACT */
+
 form {
     display: flex;
     flex-direction: column;
-    background-color: rgb(20, 20, 100, 0.3);
+    background-color: #010209bb;
     padding: 45px;
     box-sizing: border-box;
     border: solid 2px rgb(255, 255, 255);
@@ -246,15 +311,29 @@ form textarea {
 form input[type=submit] {
     margin-block-start: 30px;
     cursor: pointer;
-    background-color: rgb(20, 20, 100, 0.8);
-    border: solid 1px rgb(252, 253, 253);
+    background: rgba(132, 36, 132, 0.3);
+    border: 1px solid #842484;
+    border-radius: 100px;
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0.1em;
+
+    color: #FFFFFF;
     transition: 0.3s;
 }
 form input[type=submit]:is(:hover, :focus) {
-    color: gold;
-    filter: brightness(2);
+    background: #842484;
+    border: 1px solid #842484;
+    box-shadow: 0px 0px 25px #842484;
+    border-radius: 100px;
     transform: scale(1.03);
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 25px #FFFFFF;
 }
+
+/*FIN FORMULAIRE DE CONTACT*/
 
 a.link {
     color: white;
@@ -272,7 +351,6 @@ a.link.mail {
     text-decoration: underline;
     font-weight: bold;
 }
-
 
 
 @keyframes slideInFromTop {
@@ -304,6 +382,15 @@ a.link.mail {
   100% {
     opacity: 1;
   }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 
@@ -380,7 +467,6 @@ a.link.mail {
 }
 
 @media only screen and (min-width: 280px) and (max-width: 320px) {
-
     .logo-container {
         margin-bottom: 0px;
         position: absolute;
@@ -390,7 +476,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 250px;
+        width: 230px;
     }
 
     .text-container {
@@ -419,7 +505,6 @@ a.link.mail {
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-
     .logo-container {
         margin-bottom: 0px;
         position: absolute;
@@ -429,7 +514,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 300px;
+        width: 280px;
     }
 
     .text-container {
@@ -458,7 +543,6 @@ a.link.mail {
 }
 
 @media only screen and (min-width: 481px) and (max-width: 736px) {
-
     .logo-container {
         margin-bottom: 0px;
         position: absolute;
@@ -468,7 +552,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 350px;
+        width: 280px;
     }
 
     .text-container {
@@ -480,11 +564,11 @@ a.link.mail {
     }
 
     h1 {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     p {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     div.brand a.link {
@@ -492,7 +576,7 @@ a.link.mail {
     }
 
     footer div.legal {
-        font-size: 15px;
+        font-size: 10px;
     }
 }
 
@@ -506,7 +590,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 400px;
+        width: 280px;
     }
 
     .text-container {
@@ -544,7 +628,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 250px;
+        width: 230px;
     }
 
     .text-container {
@@ -582,7 +666,7 @@ a.link.mail {
     }
 
     .logo {
-        width: 300px;
+        width: 280px;
     }
 
     .text-container {
@@ -615,3 +699,159 @@ a.link.mail {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1615px) {
+    :root {
+        --title-font-size: 2.5em;
+        --title-text-font-size: 1.4em;
+        --little-title-font-size: 2em;
+        --text-font-size: 1em;
+        --input-font-size: 0.9em;
+    }
+}
+
+@media (max-width: 1115px) {
+    :root {
+        --title-font-size: 2em;
+        --title-text-font-size: 1.1em;
+        --little-title-font-size: 1.5em;
+        --text-font-size: 0.8em;
+        --input-font-size: 0.7em;
+    }
+
+    div.container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 745px) {
+    :root {
+        --title-font-size: 2em;
+        --title-text-font-size: 0.9em;
+        --little-title-font-size: 1.5em;
+        --text-font-size: 0.7em;
+        --input-font-size: 0.6em;
+    }
+
+    form {
+        padding: 30px;
+        border-width: 3px;
+        border-radius: 35px;
+        max-height: 500px;
+    }
+
+    form :is(input, textarea) {
+        padding: 20px;
+        border-radius: 50px;
+    }
+
+    form textarea {
+        border-radius: 20px;
+    }
+
+    form input[type=submit] {
+        margin-block-start: 25px;
+        border-width: 3px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    :root {
+        --title-font-size: 2em;
+        --title-text-font-size: 0.9em;
+        --little-title-font-size: 1.5em;
+        --text-font-size: 0.7em;
+        --input-font-size: 0.6em;
+    }
+
+    form {
+        padding: 15px;
+        border-width: 2px;
+        border-radius: 30px;
+    }
+
+    form :is(input, textarea) {
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    form textarea {
+        border-radius: 15px;
+    }
+
+    form input[type=submit] {
+        margin-block-start: 20px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 375px) {
+    form {
+        max-width: 90%;
+        max-height: 95%;
+        overflow: auto;
+    }
+
+    form div.inline {
+        display: inline-flex;
+        flex-direction: column;
+        white-space: break-spaces;
+    }
+
+    .logo {
+        width: auto;
+        height: 10%;
+    }
+}
+
+@media (max-height: 660px) and (min-width: 700px) {
+    div.container {
+        flex-direction: row;
+    }
+}
+
+@media (max-height: 430px) {
+    form {
+        zoom: 0.75;
+        max-height: 95%;
+        overflow: auto;
+    }
+}
