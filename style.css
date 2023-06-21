@@ -42,16 +42,8 @@ html, body {
     flex-direction: column;
 }
 
-.logo-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 100px;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.container.responsive {
+    height: auto;
 }
 
 .logo {
@@ -59,14 +51,6 @@ html, body {
     animation: slideInFromTop 2.5s ease forwards;
     animation-delay: 0.5s;
     opacity: 0;
-}
-
-.text-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
 }
 
 .title-container {
@@ -104,6 +88,7 @@ p.soon {
     color: #ffffff;
     text-shadow: 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 4px 4px rgba(132, 36, 132, 0.25), 0px 0px 25px #842484;
     animation: neon 2s ease-in-out infinite alternate;
+    text-align: center;
 }
 
 header {
@@ -140,13 +125,14 @@ header h2 {
 }
 
 button.goBack {
-    position: absolute;
+    position: fixed;
     left: 25px;
     top: 25px;
+    z-index: 999;
 }
 
 header button.goBack {
-    position: absolute;
+    position: fixed;
     left: 25px;
     top: auto;
 }
@@ -188,7 +174,7 @@ button {
 }
 
 footer {
-    position: absolute;
+    margin-block-start: auto;
     bottom: 0;
     display: flex;
     flex-direction: column;
@@ -209,7 +195,7 @@ footer div.brand {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 25px;
     margin-bottom: 20px;
 }
 
@@ -365,7 +351,6 @@ a.link.mail {
     text-decoration: underline;
     font-weight: bold;
 }
-
 
 
 @keyframes slideInFromTop {
@@ -850,6 +835,7 @@ a.link.mail {
         flex-direction: column;
         white-space: break-spaces;
     }
+
     .logo {
         width: auto;
         height: 10%;
