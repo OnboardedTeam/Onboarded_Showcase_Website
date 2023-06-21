@@ -9,37 +9,45 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
 // Modal show/hide
 
+var modalContainer = document.querySelector(".modalContainer");
+var modalIframe = modalContainer.querySelector("iframe");
+var modalOpenNewTab = modalContainer.querySelector("a.newTab");
+
 function openModal(href) {
-    var modalContainer = document.querySelector(".modalContainer");
-    var modalIframe = modalContainer.querySelector("iframe");
-
-    modalIframe.src = href;
+    modalIframe.removeAttribute("src");
+    modalOpenNewTab.removeAttribute("href");
+    modalIframe.src = modalOpenNewTab.href = href;
     modalContainer.removeAttribute("hidden");
-
-    modalIframe.addEventListener("load", (eventMainIframe) => {
-        modalIframe.addEventListener("load", (eventIframe) => {
-            eventIframe.preventDefault(); // prevent navigation
-            closeModal();
-        }, { once: true });
-    }, { once: true });
 }
 
 function closeModal() {
-    var modalContainer = document.querySelector(".modalContainer");
-
-    if (!modalContainer.hasAttribute("hidding")) {
+    if (!modalContainer.hasAttribute("hidding") && !modalContainer.hasAttribute("hidden")) {
         modalContainer.setAttribute("hidding", "");
 
         modalContainer.addEventListener("animationend", (eAnim) => {
             if (eAnim.animationName === "fadeOut") {
-                modalContainer.removeAttribute("hidding");
                 modalContainer.setAttribute("hidden", "");
+                modalContainer.removeAttribute("hidding");
+                modalIframe.removeAttribute("src");
+                modalOpenNewTab.removeAttribute("href");
             }
         }, { once: true });
     }
 }
+
+modalIframe.addEventListener("load", (eventIframe) => {
+    let lastModalSrc = modalOpenNewTab.href;
+
+    if (!modalContainer.hasAttribute("hidding") && !modalContainer.hasAttribute("hidden")) {
+        if (modalIframe.contentWindow.location.href != lastModalSrc) {
+            eventIframe.preventDefault(); // prevent navigation
+            closeModal();
+        }
+    }
+});
 
 window.addEventListener("click", (event) => {
     var target = event.target;
