@@ -20,9 +20,12 @@ function openModal(href) {
     modalContainer.removeAttribute("hidden");
 
     modalIframe.addEventListener("load", (eventMainIframe) => {
+        modalIframe.lastSrc = modalIframe.src;
         modalIframe.addEventListener("load", (eventIframe) => {
-            eventIframe.preventDefault(); // prevent navigation
-            closeModal();
+            if (modalIframe.src != modalIframe.lastSrc) {
+                eventIframe.preventDefault(); // prevent navigation
+                closeModal();
+            }
         }, { once: true });
     }, { once: true });
 }
