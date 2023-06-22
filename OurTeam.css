@@ -1,0 +1,49 @@
+section#team {
+    background: linear-gradient(180deg, #000 0%, #010209 63.54%);
+    transform: scale(0.75);
+}
+
+section#team :is(h2, h3) {
+    color: #FFF;
+    font-size: 1.25rem;
+    font-family: Orbitron;
+    font-weight: 700;
+    letter-spacing: 0.125rem;
+}
+
+section#team :is(h2) {
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+}
+
+section#team div.photoContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-content: space-between;
+    place-items: start center;
+    gap: 15px;
+    padding: 25px;
+    box-sizing: border-box;
+    align-items: start;
+    align-content: center;
+    justify-items: center;
+    flex: 1;
+    margin: auto;
+}
+
+section#team div.photoContainer div.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 200px;
+    text-align: center;
+}
+
+section#team div.photoContainer div.member img.photo {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.7));
+    transition: 0.25s;
+}

@@ -1,0 +1,152 @@
+/*--------------------------------/
+/                                 /
+/     MAIN PAGE BUILDING PART     /
+/                                 /
+/--------------------------------*/
+
+section#WhyMetavirtual {
+    
+}
+
+section#WhyMetavirtual div.catalogContainer {
+    display: flex;
+    width: 95%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+section#WhyMetavirtual div.catalogContainer video.image {
+    height: 69%;
+    /* width: 60%; */
+    width: 50%;
+    object-fit: cover;
+    transform: scale(1.5);
+    user-select: none;
+    pointer-events: none;
+}
+
+section#WhyMetavirtual div.catalogContainer div.content {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    z-index: 1;
+    max-height: 100%;
+    overflow: auto;
+}
+
+section#WhyMetavirtual div.catalogContainer div.content div.text {
+    color: #FFFFFF;
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--text-font-size);
+    line-height: var(--line-height);
+    letter-spacing: 0.1em;
+}
+
+section#WhyMetavirtual div.catalogContainer div.content div.text p {
+    
+}
+
+section#WhyMetavirtual div.catalogContainer div.content div.text strong {
+    color: #FF48FF;
+}
+
+section#WhyMetavirtual div.catalogContainer div.content div.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section#WhyMetavirtual div.catalogContainer div.content div.details p.text {
+    color: #FFFFFF;
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--text-font-size);
+    line-height: var(--line-height);
+    letter-spacing: 0.1em;
+}
+
+section#WhyMetavirtual div.catalogContainer div.content div.details a:has(button.download) {
+    display: contents;
+}
+
+section#WhyMetavirtual div.catalogContainer div.content div.details button.download {
+    border-radius: 100px;
+    padding: 20px 50px 20px 50px;
+    background: #8424844D;
+    border: none;
+
+    color: #FFFFFF;
+    font-family: 'Orbitron';
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--text-font-size);
+    line-height: var(--line-height);
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    margin: auto;
+    transition: 0.3s;
+} section#WhyMetavirtual div.catalogContainer div.content div.details button.download:hover {
+    background: #9e209eb2;
+}
+
+/*---------------------------------------/
+/                                        /
+/     END OF MAIN PAGE BUILDING PART     /
+/                                        /
+/---------------------------------------*/
+
+
+
+
+
+/*------------------------/
+/                         /
+/     RESPONSIVE PART     /
+/                         /
+/------------------------*/
+
+@media screen and (max-width: 1115px) {
+    section#WhyMetavirtual div.catalogContainer video.image {
+        height: 50%;
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    section#WhyMetavirtual div.catalogContainer video.image {
+        height: 50%;
+        width: 100%;
+        position: absolute;
+        opacity: 0.3;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    section#WhyMetavirtual div.catalogContainer video.image {
+        height: 30%;
+        width: 100%;
+    }
+}
+@media screen and (max-height: 460px) {
+    section#WhyMetavirtual div.catalogContainer video.image {
+        height: 45%;
+        width: 35%;
+    }
+}
+
+@media screen and (max-height: 460px) and (max-width: 500px) {
+    section#WhyMetavirtual div.catalogContainer video.image {
+        height: 50%;
+        width: 100%;
+    }
+}
+
+/*-------------------------------/
+/                                /
+/     END OF RESPONSIVE PART     /
+/                                /
+/-------------------------------*/
